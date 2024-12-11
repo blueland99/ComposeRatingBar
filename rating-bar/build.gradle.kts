@@ -69,3 +69,7 @@ publishing {
 
 group = "com.blueland"
 version = "1.0.0"
+
+tasks.named("publishReleasePublicationToMavenLocal") {
+    dependsOn("bundleReleaseAar") // 명시적으로 의존성 설정
+}
