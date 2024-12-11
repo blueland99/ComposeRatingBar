@@ -34,7 +34,6 @@ proguard-rules.pro
 # Gradle Wrapper
 gradlew
 gradlew.bat
-/gradle/wrapper/gradle-wrapper.jar
 /gradle/wrapper/gradle-wrapper.properties
 
 # Android 빌드 파일
