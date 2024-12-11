@@ -41,7 +41,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun RatingBarDemo() {
-    var roundedStarRating by remember { mutableDoubleStateOf(0.4) }
     var starRating by remember { mutableDoubleStateOf(1.0) }
     var heartRating by remember { mutableDoubleStateOf(2.5) }
     var circleRating by remember { mutableDoubleStateOf(3.0) }

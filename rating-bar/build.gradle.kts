@@ -49,9 +49,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
 }
 
-group = "com.blueland"
-version = "1.0.0"
-
 publishing {
     publications {
         create<MavenPublication>("release") {
@@ -69,3 +66,6 @@ publishing {
         }
     }
 }
+
+group = "com.blueland"
+version = "1.0.0"
