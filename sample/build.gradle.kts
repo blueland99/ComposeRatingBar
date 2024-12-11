@@ -39,5 +39,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.ui.tooling.preview)
     testImplementation(libs.junit)
-    implementation(project(":rating-bar"))
+
+    implementation("com.github.blueland99:ComposeRatingBar:1.0.6") // 라이브러리 추가
 }
