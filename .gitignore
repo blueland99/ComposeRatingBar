@@ -1,0 +1,52 @@
+# Android Studio
+.idea/
+.gradle/
+local.properties
+*.iml
+
+# 빌드 디렉토리
+/build/
+*/build/
+
+# Gradle 관련 파일들
+build/
+
+# Android Studio 프로젝트 캐시
+*.apk
+*.ap_
+*.dex
+*.class
+
+# 사용자별 설정
+*.log
+*.swp
+*~.nib
+.DS_Store
+
+# Proguard files
+proguard-rules.pro
+
+# 기타
+*.jar
+*.war
+*.ear
+
+# Gradle Wrapper
+gradlew
+gradlew.bat
+/gradle/wrapper/gradle-wrapper.jar
+/gradle/wrapper/gradle-wrapper.properties
+
+# Android 빌드 파일
+*.keystore
+*.jks
+
+# 테스트 관련 파일들
+/test-results/
+*/test-results/
+
+# Firebase 관련 파일
+google-services.json
+
+# 기타 자동 생성되는 파일들
+*.lock
