@@ -29,7 +29,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.blueland99:ComposeRatingBar:1.0.0'
+    implementation 'com.github.blueland99:ComposeRatingBar:1.0.8'
 }
 ```
 
@@ -116,7 +116,7 @@ Add the **ComposeRatingBar** dependency to your **build.gradle** (module level) 
 
 ```gradle
 dependencies {
-    implementation 'com.github.blueland99:ComposeRatingBar:1.0.0'
+    implementation 'com.github.blueland99:ComposeRatingBar:1.0.8'
 }
 ```
 

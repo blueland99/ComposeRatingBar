@@ -54,7 +54,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.blueland"
             artifactId = "rating-bar"
-            version = "1.0.0"
+            version = "1.0.8"
 
             artifact(layout.buildDirectory.file("outputs/aar/${project.name}-release.aar"))
         }
@@ -68,7 +68,7 @@ publishing {
 }
 
 group = "com.blueland"
-version = "1.0.0"
+version = "1.0.8"
 
 tasks.named("publishReleasePublicationToMavenLocal") {
     dependsOn("bundleReleaseAar") // 명시적으로 의존성 설정
