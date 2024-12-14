@@ -27,7 +27,7 @@ import kotlin.math.roundToInt
  * @param rating 현재 별점 (0.0에서 `count` 사이의 값)
  * @param onRatingChanged 별점이 변경될 때 호출되는 콜백 함수
  * @param count 총 별 개수 (기본값: 5)
- * @param stepSize 별점 변경 시의 단계 크기 (기본값: 0.1)
+ * @param stepSize 별점 변경 시의 단계 크기 (기본값: 0.1, 최대값: 1.0)
  * @param size 각 별의 크기 (기본값: 28.dp)
  * @param spacing 별들 사이의 간격 (기본값: 8.dp)
  * @param isIndicator 읽기 전용으로 설정할지 여부 (기본값: false)
@@ -42,7 +42,7 @@ import kotlin.math.roundToInt
  * @param rating The current rating value (between 0.0 and `count`)
  * @param onRatingChanged Callback triggered when the rating changes
  * @param count Total number of stars (Default: 5)
- * @param stepSize The step size for rating changes (Default: 0.1)
+ * @param stepSize The step size for rating changes (Default: 0.1, Maximum: 1.0)
  * @param size Size of each star (Default: 28.dp)
  * @param spacing Spacing between stars (Default: 8.dp)
  * @param isIndicator Whether the rating bar is read-only (Default: false)
@@ -52,6 +52,9 @@ import kotlin.math.roundToInt
  * @param unselectColor Color of the unfilled portion of the stars (Default: Gray)
  * @param borderColor The color of the border (Default: Black)
  * @param borderWidth The width of the border (Default: 0.dp)
+ *
+ * 제한 사항:
+ * - `stepSize`는 0보다 커야 하며, 최대값은 1.0입니다. 이 범위를 벗어나면 에러가 발생합니다.
  */
 @Composable
 fun RatingBar(
@@ -70,6 +73,11 @@ fun RatingBar(
     borderColor: Color = Color.Black,
     borderWidth: Dp = 0.dp
 ) {
+    // stepSize 검증
+    require(stepSize > 0 && stepSize <= 1.0) {
+        "Invalid stepSize: $stepSize. stepSize must be greater than 0 and less than or equal to 1.0"
+    }
+
     val totalWidth = remember(size, spacing, count) {
         (size + spacing) * count - spacing
     }
@@ -91,7 +99,7 @@ fun RatingBar(
                                 val clampedRating = rawRating.coerceIn(0.0f, count.toFloat())
 
                                 // Adjust rating based on step size
-                                val finalRating = (clampedRating / stepSize).roundToInt() * stepSize
+                                val finalRating = ((clampedRating / stepSize).roundToInt() * stepSize * 100).toInt() / 100.0
                                 updatedOnRatingChanged(finalRating)
                             }
 
